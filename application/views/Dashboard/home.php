@@ -39,7 +39,7 @@
     var locations = <?php echo JSON_encode($dataspbu); ?>;
     console.log(locations)
 
-    var icon = <?php echo JSON_encode(base_url('gambar_spbu/fuel.png')); ?>;
+    var icon = <?php echo JSON_encode(base_url('gambar_spbu/broadcast.png')); ?>;
     var greenIcon = L.icon({
         iconUrl: icon,
         iconSize: [40, 40], // size of the icon

@@ -11,8 +11,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data SPBU
-            <small>Lihat Data SPBU</small>
+            Data Studio Photo
+            <small>Lihat Data Studio Photo</small>
         </h1>
     </section>
 

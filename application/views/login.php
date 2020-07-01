@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Admin GIS SPBU</title>
+	<title>Admin GIS Studio Photo</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -27,7 +27,7 @@
 	<div class="container-login100">
 		<div class="wrap-login100">
 			<div class="login100-pic js-tilt" data-tilt>
-				<img src="<?php echo base_url("/assets/login/images/fuel.png")?>" alt="IMG">
+				<img src="<?php echo base_url("/assets/login/images/broadcast.png")?>" alt="IMG">
 			</div>
 
 			<form class="login100-form validate-form" action="<?php echo base_url('login/do_login')?>" method="post">

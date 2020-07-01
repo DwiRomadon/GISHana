@@ -52,8 +52,8 @@ if ($edit == true) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php echo $title ?> Data SPBU
-            <small>Data SPBU</small>
+            <?php echo $title ?> Data Studio Photo
+            <small>Data Studio Photo</small>
         </h1>
     </section>
 
@@ -65,7 +65,7 @@ if ($edit == true) {
                 <!-- general form elements -->
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $title ?> Data SPBU</h3>
+                        <h3 class="box-title"><?php echo $title ?> Data Studio Photo</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -91,10 +91,10 @@ if ($edit == true) {
                                    placeholder="Kode Kecamatan">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama SPBU</label>
+                            <label for="exampleInputEmail1">Nama Studio Photo</label>
                             <input type="text" value="<?php echo $namaSpbu ?>" name="namaspbu" class="form-control"
                                    id="exampleInputEmail1"
-                                   placeholder="Nama SPBU">
+                                   placeholder="Nama Studio Photo">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
@@ -119,7 +119,7 @@ if ($edit == true) {
                         </div>
 
                         <div class="form-group">
-                            <label>Gambar Spbu</label>
+                            <label>Gambar Studio Photo</label>
                             <div class="input-group">
                                     <span class="input-group-btn">
                                         <span class="btn btn-default btn-file">
