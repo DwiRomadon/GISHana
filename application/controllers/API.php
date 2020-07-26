@@ -60,4 +60,18 @@ class API extends CI_Controller
         echo json_encode($data);
     }
 
+    public function getAllDataSpbu()
+    {
+        $photoStudio = $this->Query->getDataJoin('tbl_spbu','tbl_kecamatan', 'kd_kec')->result();
+        if($photoStudio):
+            $data['status'] = true;
+            $data['msg']	= 'berhasil memuat';
+            $data['user']   = $photoStudio;
+        else:
+            $data['status'] = false;
+            $data['msg']	= 'gagal memuat';
+        endif;
+        echo json_encode($data);
+    }
+
 }
