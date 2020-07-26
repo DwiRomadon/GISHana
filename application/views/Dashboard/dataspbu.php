@@ -1,7 +1,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <?php
-$datanya = '';
 $idSpbu = '';
 $namaSpbu = '';
 $alamat = '';
@@ -10,13 +9,21 @@ $deskripsi = '';
 $gambarSpbu = '';
 $lati = '';
 $longi = '';
+$kode_kec ='';
+$kecamatan ='';
 $url = '';
 if ($edit == true) {
     $title = "Edit";
-    $kodeKecamatan = $datakecamatan->kd_kecamatan;
-    $namaKec = $datakecamatan->nama_kec;
-    $idKecamatan = $datakecamatan->id_kec;
-    $url = form_open_multipart('kecamatan/editKecamatan');
+    $idSpbu = $datanya->id;
+    $namaSpbu = $datanya->nama;
+    $alamat = $datanya->alamat;
+    $kecamatan = $datanya->nama_kec;
+    $kode_kec = $datanya->kd_kec;
+    $deskripsi = $datanya->deskripsi;
+    $gambarSpbu = $datanya->gambar;
+    $lati = $datanya->lati;
+    $longi = $datanya->longi;
+    $url = form_open_multipart('spbu/do_upload_edit');
 } else {
     $title = "Input";
     $url = form_open_multipart('spbu/do_upload');
@@ -87,7 +94,7 @@ if ($edit == true) {
                     <div class="box-body">
                         <div class="form-group" hidden>
                             <input type="text" value="<?php echo $idSpbu ?>"
-                                   name="idkecamatan" class="form-control" id="exampleInputEmail1"
+                                   name="id" class="form-control" id="exampleInputEmail1"
                                    placeholder="Kode Kecamatan">
                         </div>
                         <div class="form-group">
@@ -98,13 +105,14 @@ if ($edit == true) {
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
-                            <textarea class="form-control" rows="3" placeholder="Alamat" name="alamat"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Alamat" name="alamat"><?=$alamat?></textarea>
                         </div>
 
                         <div class="form-group">
                             <label>Kecamatan</label>
                             <select class="form-control select2" name="kodekecamatan" style="width: 100%;">
                                 <option> - Pilih Kecamatan --</option>
+                                <option value="<?=$kode_kec?>"><?=$kecamatan?></option>
                                 <?php
                                 foreach ($datakecamatan as $kecamatan) {
                                     ?>
@@ -115,7 +123,7 @@ if ($edit == true) {
 
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea class="form-control" rows="3" name="deskripsi" placeholder="Deskripsi"></textarea>
+                            <textarea class="form-control" rows="3" name="deskripsi" placeholder="Deskripsi"><?=$deskripsi?></textarea>
                         </div>
 
                         <div class="form-group">
@@ -123,10 +131,10 @@ if ($edit == true) {
                             <div class="input-group">
                                     <span class="input-group-btn">
                                         <span class="btn btn-default btn-file">
-                                            Cari… <input size="20" type="file" id="imgInp" name="gambar">
+                                            Cari… <input size="20" value="<?=$gambarSpbu?>" type="file" id="imgInp" name="gambar">
                                         </span>
                                     </span>
-                                <input type="text" name="gambar" class="form-control" readonly>
+                                <input type="text" value="<?=$gambarSpbu?>" name="gambar" class="form-control" readonly>
                             </div>
                             <img id='img-upload'/>
                         </div>

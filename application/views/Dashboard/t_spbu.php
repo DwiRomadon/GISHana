@@ -78,7 +78,7 @@
                             <td><?php echo $data->lati ?></td>
                             <td><?php echo $data->longi ?></td>
                             <td>
-                                <a href="<?php echo base_url('kecamatan/viewEditKecamatan/') . $data->id; ?>">
+                                <a href="<?php echo base_url('spbu/viewEditInputSpbu/') . $data->id; ?>">
                                     <button class="btn btn-success btn-sm ">
                                         <i class="fa fa-edit"></i>
                                         Ubah

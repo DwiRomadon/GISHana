@@ -124,6 +124,71 @@ class SPBU extends CI_Controller
 
     }
 
+
+    public function viewEditInputSpbu($id)
+    {
+        $data['web'] = array(
+            'page' => 'dataspbu.php'
+        );
+        $data['datakecamatan'] = $this->Query->getAllData('tbl_kecamatan')->result();
+        $data['datanya'] = $this->Query->getDataJoinWhere('tbl_kecamatan', 'tbl_spbu', 'kd_kec', array('tbl_spbu.id'=>$id))->row();
+        $data['edit'] = true;
+        $data['user'] = $this->userLogin();
+        $this->load->view('Dashboard/template', $data);
+    }
+
+    public function do_upload_edit()
+    {
+
+        $config['upload_path'] = './gambar_spbu/';
+        $config['allowed_types'] = 'jpg|png';
+        $config['max_size'] = 100;
+        $config['max_width'] = 1024;
+        $config['max_height'] = 768;
+        $this->load->library('upload', $config);
+        $gambar = $this->upload->do_upload('gambar');
+        if (!$gambar){
+            $namaSpbu = $this->input->post('namaspbu');
+            $alamat = $this->input->post('alamat');
+            $kodeKecamatan = $this->input->post('kodekecamatan');
+            $deskripsi = $this->input->post('deskripsi');
+            $lat = $this->input->post('lat');
+            $long = $this->input->post('long');
+            $id = $this->input->post('id');
+            $file_name = $this->input->post('gambar');
+        }else{
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+            $namaSpbu = $this->input->post('namaspbu');
+            $alamat = $this->input->post('alamat');
+            $kodeKecamatan = $this->input->post('kodekecamatan');
+            $deskripsi = $this->input->post('deskripsi');
+            $lat = $this->input->post('lat');
+            $long = $this->input->post('long');
+            $id = $this->input->post('id');
+        }
+        $inputData = $this->Query->updateData(
+            array('id'=>$id),
+            array(
+            'nama' => $namaSpbu,
+            'alamat' => $alamat,
+            'kd_kec' => $kodeKecamatan,
+            'deskripsi' => $deskripsi,
+            'gambar' => $file_name,
+            'lati' => $lat,
+            'longi' => $long,
+        ), 'tbl_spbu');
+
+        if ($inputData):
+            $this->flsh_msg('Berhasil', 'ok', 'Data merubah data');
+            redirect(base_url('spbu'));
+        else:
+            $this->flsh_msg('Gagal!', 'danger', 'Data gagal dirubah');
+            redirect(base_url('spbu/viewInputSpbu'));
+        endif;
+
+    }
+
     public function userLogin()
     {
         return array(
